@@ -6,8 +6,12 @@ angular.module('video-player')
   // bindings: {
   //   videos: '<'
   // },
-  controller: function() {
+  controller: function () {
     this.videos = exampleVideoData;
-    console.log(this.videos);
+    this.currVideo = exampleVideoData[0];
+    
+    this.setCurrVideo = (index) => {
+      this.currVideo = this.videos[index];
+    };
   }
 });
