@@ -6,10 +6,20 @@ angular.module('video-player')
 
   controller: function (youTube) {
     this.videos = exampleVideoData;
-    this.currVideo = exampleVideoData[0];
+    this.currentVideo = exampleVideoData[0];
     
-    this.setCurrVideo = (index) => {
-      this.currVideo = this.videos[index];
+    this.selectVideo = (index) => {
+      this.currentVideo = this.videos[index];
     };
+    this.searchResults = (results) => {
+      this.videos = results;
+      this.currentVideo = results[0];
+    };
+    
+    youTube.search({
+      query: 'puppies', 
+      key: window.YOUTUBE_API_KEY,
+      max: '5'
+    }, this.searchResults);
   }
 });

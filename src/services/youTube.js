@@ -6,7 +6,18 @@ angular.module('video-player')
   // is the CONSTRUCTOR of the service
   this.search = function(params, callback) {
     $http({
-      // get, url, params { youtube api properties }
+      url: 'https://www.googleapis.com/youtube/v3/search',
+      type: 'GET',
+      params: {
+        part: 'snippet',
+        type: 'video',
+        videoEmbeddable: 'true',
+        key: params.key,
+        maxResults: params.max || '5',
+        q: params.query
+      }
+    }).then(function(results) {
+      callback(results.data.items);
     });
   };
 });
