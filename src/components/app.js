@@ -3,10 +3,8 @@ angular.module('video-player')
 .component('app', {
   // TODO
   templateUrl: 'src/templates/app.html',
-  // bindings: {
-  //   videos: '<'
-  // },
-  controller: function () {
+
+  controller: function (youTube) {
     this.videos = exampleVideoData;
     this.currVideo = exampleVideoData[0];
     
