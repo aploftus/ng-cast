@@ -4,13 +4,14 @@ angular.module('video-player')
   templateUrl: 'src/templates/search.html',
   
   bindings: {
-    result: '<'
+    result: '<',
+    searchYouTube: '<'
   },
   
-  controller: function (youTube) {
+  controller: function () {
     this.query = 'puppies';
     this.search = _.debounce(function() {
-      youTube.search({
+      this.searchYouTube({
         query: this.query, 
         key: window.YOUTUBE_API_KEY,
         max: '5'

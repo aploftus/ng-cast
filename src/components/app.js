@@ -14,7 +14,7 @@ angular.module('video-player')
       this.videos = results;
       this.currentVideo = results[0];
     };
-    
+    this.youTube = youTube.search;
     youTube.search({
       query: 'puppies', 
       key: window.YOUTUBE_API_KEY,
