@@ -5,8 +5,8 @@ angular.module('video-player')
   templateUrl: 'src/templates/app.html',
 
   controller: function (youTube) {
-    this.videos = exampleVideoData;
-    this.currentVideo = exampleVideoData[0];
+    this.videos = [];
+    this.currentVideo = null;
     
     this.selectVideo = (index) => {
       this.currentVideo = this.videos[index];
