@@ -9,12 +9,12 @@ angular.module('video-player')
   
   controller: function (youTube) {
     this.query = 'puppies';
-    this.search = function() {
+    this.search = _.debounce(function() {
       youTube.search({
         query: this.query, 
         key: window.YOUTUBE_API_KEY,
         max: '5'
       }, this.result);
-    };
+    }, 500);
   }
 });
